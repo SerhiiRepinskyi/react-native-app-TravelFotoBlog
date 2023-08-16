@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  Image,
-  ImageBackground,
   Text,
   TextInput,
   TouchableOpacity,
 } from "react-native";
 
-const RegistrationScreen = () => {
-  const [isFocusedLogin, setIsFocusedLogin] = useState(false);
+const LoginScreen = () => {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   // const [showPass, setShowPass] = useState(false);
@@ -18,30 +15,7 @@ const RegistrationScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
-        <View style={styles.avatarContainer}>
-          <View style={styles.avatar}>
-            <Image
-              style={{ width: 120, height: 120, borderRadius: 16 }}
-              source={require("../assets/images/userPhoto.jpg")}
-              resizeMode="cover"
-            />
-          </View>
-
-          <View style={styles.avatarBtn}>
-            <Image source={require("../assets/images/add.png")} />
-          </View>
-        </View>
-
-        <Text style={styles.title}>Реєстрація</Text>
-
-        <TextInput
-          style={[styles.input, isFocusedLogin && styles.inputFocused]}
-          placeholder="Логін"
-          placeholderTextColor="#bdbdbd"
-          autoCompleteType="off"
-          onFocus={() => setIsFocusedLogin(true)}
-          onBlur={() => setIsFocusedLogin(false)}
-        />
+        <Text style={styles.title}>Увійти</Text>
 
         <TextInput
           style={[styles.input, isFocusedEmail && styles.inputFocused]}
@@ -75,11 +49,13 @@ const RegistrationScreen = () => {
         </View>
 
         <TouchableOpacity>
-          <Text style={styles.formSubmitBtn}>Зареєстуватися</Text>
+          <Text style={styles.formSubmitBtn}>Увійти</Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text style={styles.formSubmitBtnSubtext}>Вже є акаунт? Увійти</Text>
+          <Text style={styles.formSubmitBtnSubtext}>
+            Немає акаунту? Зареєструватися
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -106,30 +82,6 @@ const styles = StyleSheet.create({
     position: "relative",
   },
 
-  avatarContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-
-    width: 120,
-    height: 120,
-    backgroundColor: "#F6F6F6",
-    borderRadius: 16,
-    position: "relative",
-    top: -60,
-  },
-
-  avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 16,
-  },
-
-  avatarBtn: {
-    position: "absolute",
-    left: 100,
-    top: 75,
-  },
-
   title: {
     fontFamily: "Roboto-Medium",
     // fontWeight: 500,
@@ -137,7 +89,7 @@ const styles = StyleSheet.create({
     color: "#212121",
     letterSpacing: 0.3,
 
-    marginTop: -28,
+    marginTop: 32,
     marginBottom: 33,
   },
 
@@ -226,8 +178,8 @@ const styles = StyleSheet.create({
     color: "#1B4371",
 
     marginTop: 16,
-    marginBottom: 45,
+    marginBottom: 111,
   },
 });
 
-export default RegistrationScreen;
+export default LoginScreen;
